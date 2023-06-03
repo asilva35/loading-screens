@@ -7,9 +7,10 @@ export default function LSGradientScreen({ image }) {
 
   useEffect(() => {
     const onPageLoad = () => {
-      setTimeout(() => {
-        ref.current.classList.add(styles.close);
-      }, 1500);
+      //   setTimeout(() => {
+      //     ref.current.classList.add(styles.close);
+      //   }, 1500);
+      ref.current.classList.add(styles.close);
     };
     if (document.readyState === 'complete') {
       onPageLoad();
