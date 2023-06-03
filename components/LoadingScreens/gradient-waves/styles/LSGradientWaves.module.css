@@ -1,0 +1,96 @@
+#loadingScreen {
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 99;
+    transition: transform 0.8s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+  }
+
+  .imgCnt{
+    width: 184px;
+    height: 198px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imgCnt img {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  #loadingScreen.close {
+    animation: closeLoading 0.8s linear forwards;
+  }
+
+  @keyframes closeLoading {
+    0% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    70% {
+      transform: translateY(-70%);
+      opacity: 1;
+    }
+
+    99% {
+      transform: translateY(-99%);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .animatedBgCnt{
+    position: absolute;
+    width: calc(100vw * 2.5);
+    height: calc(100vw * 2.5);
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 100%);
+    animation: animatedBgCnt 3.5s linear forwards;
+  }
+
+  @keyframes animatedBgCnt {
+    from{
+      transform: translate(-50%, 75%);
+    }
+    to{
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .animatedBg{
+    position: absolute;
+    background: linear-gradient(98.99deg, #DC04FF 4.02%, #9517D3 47.57%, #4B2CA6 96.67%);
+    border-radius: 40%;
+    width: 200%;
+    height: 200%;
+    left: 0%;
+    top: 0%;
+    transform: translate(-25%, -25%);
+    animation: animatedBg 3s linear infinite;
+    overflow: hidden;
+  }
+
+  @keyframes animatedBg {
+    from{
+      transform: translate(-25%, -25%) rotate(0deg);
+    }
+    to{
+      transform: translate(-25%, -25%) rotate(360deg);
+    }
+  }
