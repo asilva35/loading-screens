@@ -29,27 +29,27 @@ export default function LSGradientScreen({ image }) {
   //     }
   //   }, []);
 
-  //   useEffect(() => {
-  //     const onPageLoad = () => {
-  //       const worker = new Worker(
-  //         new URL('@/workers/wait5s.js', import.meta.url)
-  //       );
-  //       worker.onmessage = function (event) {
-  //         console.log('Mensaje recibido:', event.data);
-  //         ref.current.classList.add(styles.close);
-  //       };
-  //       worker.postMessage('¡Hola Web Worker!');
-  //     };
-  //     if (document.readyState === 'complete') {
-  //       onPageLoad();
-  //     } else {
-  //       window.addEventListener('load', onPageLoad);
-  //       return () => {
-  //         window.removeEventListener('load', onPageLoad);
-  //         worker.terminate();
-  //       };
-  //     }
-  //   }, [ref]);
+  useEffect(() => {
+    const onPageLoad = () => {
+      const worker = new Worker(
+        new URL('@/workers/wait5s.js', import.meta.url)
+      );
+      worker.onmessage = function (event) {
+        console.log('Mensaje recibido:', event.data);
+        ref.current.classList.add(styles.close);
+      };
+      worker.postMessage('¡Hola Web Worker!');
+    };
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad);
+      return () => {
+        window.removeEventListener('load', onPageLoad);
+        worker.terminate();
+      };
+    }
+  }, [ref]);
 
   //   useEffect(() => {
   //     const onPageLoad = () => {
