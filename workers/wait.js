@@ -1,4 +1,3 @@
-// worker.js
 const onmessage = function (event) {
   setTimeout(() => {
     self.postMessage('Ready');
